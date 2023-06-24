@@ -46,6 +46,75 @@ const dataClipboard: DataClipboardType[] = [
     `,
   },
   {
+    name: 'card_vertical',
+    title: 'Vertical card',
+    code: `
+      <a href="#" class="card__item">
+        <div class="card__thumbnail">
+          <figure class="card__image">
+            <img src="https://images.pexels.com/photos/17211591/pexels-photo-17211591/free-photo-of-bicycle-parked-under-building-painted-blue.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" loading="lazy">
+          </figure>
+        </div>
+        <div class="card__desc">
+          <h4>Lorem ipsum dolor sit amet consectetur</h4>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi atque ab exercitationem doloremque architecto deleniti vitae odit animi possimus, quidem, obcaecati ea veniam corrupti quos minima nam facilis suscipit rem!</p>
+        </div>
+      </a>
+
+      .card__item {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 6px;
+        border: 1px solid grey;
+      }
+
+      .card__thumbnail {
+        flex-shrink: 0;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        position: relative;
+      }
+
+      .card__image {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+      }
+
+      .card__image img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .card__desc {
+        width: 100%;
+        padding: 8px 12px;
+      }
+
+      .card__desc h4 {
+        color: #000;
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+
+      .card__desc p {
+        font-size: 14px;
+        color: #000;
+      }
+    `,
+  },
+  {
     name: 'card_horizontal',
     title: 'Horizontal card',
     code: `

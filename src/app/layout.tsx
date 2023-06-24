@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 import '../common/styles/globals.css';
 import { Inter } from 'next/font/google';
+import { getTimeNowVN } from '@/helpers';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
@@ -12,7 +13,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const greeting = useMemo(() => {
-    const now = new Date();
+    const now = new Date(getTimeNowVN());
     const currentHours = now.getHours();
 
     if (currentHours < 11) {

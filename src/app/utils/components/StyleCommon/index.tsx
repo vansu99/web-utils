@@ -16,7 +16,7 @@ export default function StyleCommon() {
         <div
           key={data.name}
           onClick={() => handleCopy(data.code)}
-          className='flex cursor-pointer items-center justify-between rounded-lg border border-solid border-second px-6 py-4 transition-all hover:bg-second/20'
+          className='flex min-h-[6.2rem] cursor-pointer items-center justify-between rounded-lg border border-solid border-second px-6 py-4 transition-all hover:bg-second/20'
         >
           <span className='text-2xl text-white'>{data.title}</span>
           <FaRegClipboard className='text-[1.45rem] text-white' />
