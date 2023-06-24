@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    color: #000;
+    font-size: 62.5%;
+    line-height: 1.4;
+  }
+
+  body {
+    background-color: #090e1a;
+  }
+
+  img {
+    height: auto;
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    max-width: 116rem;
+    margin: 0 auto;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+
+  .slogan {
+    position: relative;
+  }
+
+  .slogan::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 7rem;
+    height: 0.2rem;
+    background: linear-gradient(to right, #0cebeb, #20e3b2, #29ffc6);
+  }
+
+  .text-magic {
+    color: transparent;
+    background-image: linear-gradient(to right, #0cebeb, #20e3b2, #29ffc6);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  .bg-code {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 8px #ffffff08;
+    border-radius: 2.4rem;
+  }
+
+  .text-title {
+    position: relative;
+    color: white;
+    text-transform: uppercase;
+    font-size: 2.1rem;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .text-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 7rem;
+    height: 0.2rem;
+    background: linear-gradient(to right, #0cebeb, #20e3b2, #29ffc6);
+    bottom: 0;
+  }
+
+  .bg-button {
+    background-color: #090e1a;
+  }
+}
