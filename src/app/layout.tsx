@@ -1,8 +1,11 @@
+'use client';
+
 import Link from 'next/link';
-import { useMemo } from 'react';
+import routes from '@/routes';
 import '../common/styles/globals.css';
 import { Inter } from 'next/font/google';
 import { getTimeNowVN } from '@/helpers';
+import { useMemo, useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
@@ -12,9 +15,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const [nowHours] = useState(new Date(getTimeNowVN()));
+
   const greeting = useMemo(() => {
-    const now = new Date(getTimeNowVN());
-    const currentHours = now.getHours();
+    const currentHours = nowHours.getHours();
 
     if (currentHours < 11) {
       return '🌞 Good morning, Evan! ☕🧑‍💻';
@@ -25,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     } else {
       return '🌛 Hey bro, relax and chill! 🎮🎯';
     }
-  }, []);
+  }, [nowHours]);
 
   return (
     <html lang='en' suppressHydrationWarning={true}>
@@ -39,30 +43,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           <nav className='mx-auto mt-8 w-full max-w-[116.0rem] px-[2.4rem]'>
             <ul className='flex items-stretch justify-center overflow-hidden rounded-full border border-solid border-[rgba(12,235,235,0.28)] bg-[rgba(255,255,255,0.02)] px-6 py-2'>
-              <li>
-                <Link
-                  href='#'
-                  className='inline-block px-[2.4rem] py-4 text-[1.6rem] font-medium text-white transition-colors hover:text-first'
-                >
-                  <span>About</span>
-                </Link>
-              </li>
-              <li>
-                <a
-                  href='#'
-                  className='inline-block px-[2.4rem] py-4 text-[1.6rem] font-medium text-white transition-colors hover:text-first'
-                >
-                  <span>Topics</span>
-                </a>
-              </li>
-              <li>
-                <Link
-                  href='/utils'
-                  className='inline-block px-[2.4rem] py-4 text-[1.6rem] font-medium text-white transition-colors hover:text-first'
-                >
-                  <span>Utils</span>
-                </Link>
-              </li>
+              {routes.map((route) => (
+                <li key={route.name}>
+                  <Link
+                    href={route.path}
+                    className='inline-block px-[2.4rem] py-4 text-[1.6rem] font-medium text-white transition-colors hover:text-first'
+                  >
+                    <span>{route.name}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </header>
