@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import routes from '@/routes';
 import '../common/styles/globals.css';
