@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
+import dataClipboard from './data';
 import { FaRegClipboard } from 'react-icons/fa';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import dataClipboard from '@/app/utils/components/StyleCommon/data';
 
 export default function StyleCommon() {
   const [_, copy] = useCopyToClipboard();

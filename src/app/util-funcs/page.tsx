@@ -2,11 +2,16 @@
 
 import React from 'react';
 import Accordion from '@/components/Accordion';
-import SampleTestData from '@/app/utils/components/SampleTestData';
-import AspectRatioImage from '@/app/utils/components/AspectRatioImage';
-import StyleCommon from '@/app/utils/components/StyleCommon';
+import StyleCommon from '@/components/StyleCommon';
+import SampleTestData from '@/components/SampleTestData';
+import AspectRatioImage from '@/components/AspectRatioImage';
 
-function Utils() {
+export const metadata = {
+  title: 'Util Functions',
+  description: 'Generate util functions',
+};
+
+export default function UtilFunctions() {
   const [visible, setVisible] = React.useState('');
 
   return (
@@ -36,5 +41,3 @@ function Utils() {
     </main>
   );
 }
-
-export default Utils;

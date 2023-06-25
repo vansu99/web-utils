@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import sampleTestData from '@/app/utils/components/SampleTestData/data';
+import sampleTestData from './data';
 
 export default function SampleTestData() {
   return (

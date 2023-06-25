@@ -1,3 +1,5 @@
+'use client';
+
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { INPUT_NUMBER_REGEX } from '@/common/constants/regex';
 
