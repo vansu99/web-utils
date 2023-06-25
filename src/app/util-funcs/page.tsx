@@ -6,11 +6,6 @@ import StyleCommon from '@/components/StyleCommon';
 import SampleTestData from '@/components/SampleTestData';
 import AspectRatioImage from '@/components/AspectRatioImage';
 
-export const metadata = {
-  title: 'Util Functions',
-  description: 'Generate util functions',
-};
-
 export default function UtilFunctions() {
   const [visible, setVisible] = React.useState('');
 
