@@ -18,6 +18,10 @@ const sampleTestData = [
         name: ' Katakana characters:',
         data: 'ァアィイゥウェエォオ',
       },
+      {
+        name: 'Content longer than 191 characters',
+        data: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu',
+      },
     ],
   },
   {

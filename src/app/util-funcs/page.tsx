@@ -3,6 +3,7 @@
 import React from 'react';
 import Accordion from '@/components/Accordion';
 import StyleCommon from '@/components/StyleCommon';
+import RegexCommon from '@/components/RegexCommon';
 import SampleTestData from '@/components/SampleTestData';
 import AspectRatioImage from '@/components/AspectRatioImage';
 
@@ -28,6 +29,11 @@ export default function UtilFunctions() {
             <Accordion.List name='common_css' title='Generate CSS common'>
               <Accordion.Item>
                 <StyleCommon />
+              </Accordion.Item>
+            </Accordion.List>
+            <Accordion.List name='common_regex' title='Regex common'>
+              <Accordion.Item>
+                <RegexCommon />
               </Accordion.Item>
             </Accordion.List>
           </Accordion>
