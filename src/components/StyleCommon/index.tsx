@@ -3,25 +3,38 @@
 import React from 'react';
 import dataClipboard from './data';
 import { FaRegClipboard } from 'react-icons/fa';
+import { CheckedIcon } from '@/components/Icons';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 
 export default function StyleCommon() {
-  const [_, copy] = useCopyToClipboard();
+  const [selectedId, setSelectedId] = React.useState<number | null>(null);
+  const [copied, _, copy] = useCopyToClipboard();
 
-  const handleCopy = (code: string) => {
+  const handleCopy = (code: string, index: number) => {
     copy(code);
+    setSelectedId(index);
   };
+
+  React.useEffect(() => {
+    const timeoutId = setTimeout(() => setSelectedId(null), 2000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [selectedId]);
 
   return (
     <div className='grid grid-cols-5 gap-6'>
-      {dataClipboard.map((data) => (
+      {dataClipboard.map((data, index) => (
         <div
           key={data.name}
-          onClick={() => handleCopy(data.code)}
-          className='flex min-h-[6.2rem] cursor-pointer items-center justify-between rounded-lg border border-solid border-second px-6 py-4 transition-all hover:bg-second/20'
+          onClick={() => handleCopy(data.code, index)}
+          className={`flex min-h-[6.2rem] cursor-pointer items-center justify-between rounded-lg border border-solid px-6 py-4 transition-all duration-300  ${
+            selectedId === index && copied ? 'border-first hover:bg-first/20' : 'border-second hover:bg-second/20'
+          }`}
         >
           <span className='text-2xl text-white'>{data.title}</span>
-          <FaRegClipboard className='text-[1.45rem] text-white' />
+          {selectedId === index && copied ? <CheckedIcon /> : <FaRegClipboard className='text-[1.45rem] text-white' />}
         </div>
       ))}
     </div>
