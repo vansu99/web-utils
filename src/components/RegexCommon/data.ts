@@ -1,12 +1,12 @@
 const dataRegex = [
   {
-    name: '※Email',
+    name: 'Email',
     value:
-      '/^(([^<>()[]\\.,;:s@"]+(.[^<>()[]\\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/',
+      '/^(([^&lt;&gt;()[]\\.,;:s@&quot;]+(.[^&lt;&gt;()[]\\.,;:s@&quot;]+)*)|(&quot;.+&quot;))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/',
     child: [],
   },
   {
-    name: '※Password',
+    name: 'Password',
     value: '',
     child: [
       {
@@ -20,23 +20,23 @@ const dataRegex = [
     ],
   },
   {
-    name: '※Link youtube',
+    name: 'Link youtube',
     value: '/^(https://)?((www.)?youtube.com|youtu.be)/.+$/',
     child: [],
   },
   {
-    name: '※Link twitter',
+    name: 'Link twitter',
     value: '/(?:https://)?(?:www.)?twitter.com/(?:(?:w)*#!/)?(?:pages/)?(?:[w-]*/)*([w-]*)/',
     child: [],
   },
   {
-    name: '※Only number',
+    name: 'Only number',
     value:
       '/[\u00C0-\u1EF9a-zA-ZＡ-ｚ０-９ぁ-んァ-ン!-/:-@[-`{-~s,[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B]/g'.toString(),
     child: [],
   },
   {
-    name: '※Character Japan',
+    name: 'Character Japan',
     value:
       '/[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B/g',
     child: [],
