@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { useState } from 'react';
 import Accordion from '@/components/Accordion';
 import StyleCommon from '@/components/StyleCommon';
 import RegexCommon from '@/components/RegexCommon';
@@ -8,7 +8,7 @@ import SampleTestData from '@/components/SampleTestData';
 import AspectRatioImage from '@/components/AspectRatioImage';
 
 export default function UtilFunctions() {
-  const [visible, setVisible] = React.useState('');
+  const [visible, setVisible] = useState('');
 
   return (
     <main className='container min-h-screen pt-[5.5rem]'>

@@ -13,6 +13,10 @@ const routes: ROUTE[] = [
     name: 'Utils',
     path: '/util-funcs',
   },
+  {
+    name: 'Components',
+    path: '/components',
+  },
 ];
 
 export default routes;

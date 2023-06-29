@@ -10,6 +10,7 @@ module.exports = {
       white: '#ffffff',
       first: '#0cebeb',
       second: '#ffb86c',
+      third: '#d1d1d1',
     },
   },
   plugins: [],

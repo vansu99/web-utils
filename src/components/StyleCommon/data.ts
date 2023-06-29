@@ -207,6 +207,19 @@ const dataClipboard: DataClipboardType[] = [
       }
     `,
   },
+  {
+    name: 'hide_scroll',
+    title: 'Hide scroll',
+    code: `
+      .hide-scroll {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    `,
+  },
 ];
 
 export default dataClipboard;

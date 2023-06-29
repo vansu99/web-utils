@@ -1,4 +1,10 @@
-const dataRegex = [
+interface DataRegexTypes {
+  name: string;
+  value?: string;
+  child: { name?: string; data?: string }[];
+}
+
+const dataRegex: DataRegexTypes[] = [
   {
     name: 'Email',
     value:
