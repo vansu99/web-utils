@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <p className='block text-center text-[1.7rem] text-white'>{greeting}</p>
         </div>
         {children}
-        <footer className='border-t-[1px] border-first p-8 shadow-md'>
+        <footer className='border-t-[1px] border-first p-8'>
           <div className='flex flex-col items-center justify-center'>
             <p className='mb-4 text-[1.5rem] font-medium text-white'>
               Author: <span className='text-magic'>Evan</span>
