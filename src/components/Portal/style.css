@@ -1,0 +1,15 @@
+.zoom-enter .portal__body {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.zoom-enter-active .portal__body {
+  opacity: 1;
+  transform: scale(1);
+}
+.zoom-exit .portal__body {
+  opacity: 1;
+}
+.zoom-exit-active .portal__body {
+  opacity: 0;
+  transform: scale(0.5);
+}

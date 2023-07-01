@@ -83,6 +83,42 @@
     bottom: 0;
   }
 
+  .btn {
+    outline: none;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    min-width: 12rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.25s ease;
+  }
+
+  .btn:hover {
+    opacity: 0.95;
+  }
+
+  .btn.btn-primary {
+    background-color: #20e3b2;
+  }
+
+  .btn.btn-outline {
+    color: #000;
+    border: 1px solid #d1d1d1;
+    background-color: transparent;
+  }
+
+  .btn.btn-magic {
+    background: linear-gradient(to right, #0cebeb, #20e3b2, #29ffc6);
+  }
+
+  .btn.btn-outline:hover {
+    background-color: #d1d1d1;
+  }
+
   .bg-button {
     background-color: #090e1a;
   }

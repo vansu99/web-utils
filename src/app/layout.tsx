@@ -27,8 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, [nowHours]);
 
   return (
-    <html lang='en' suppressHydrationWarning={true}>
-      <body suppressHydrationWarning={true} className={inter.className}>
+    <html lang='en' suppressHydrationWarning>
+      <body suppressHydrationWarning className={inter.className}>
         <header id='main-header'>
           <div className='py-[2rem] pt-[4rem]'>
             <Link href='/' className='text-magic block text-center text-[4rem]'>
