@@ -4,7 +4,7 @@ type CopiedStatus = boolean;
 type CopiedValue = string | null;
 type CopyFn = (text: string) => Promise<boolean>;
 
-export function useCopyToClipboard(): [CopiedStatus, CopiedValue, CopyFn] {
+export default function useCopyToClipboard(): [CopiedStatus, CopiedValue, CopyFn] {
   const [copied, setCopied] = useState(false);
   const [copiedText, setCopiedText] = useState<CopiedValue>(null);
 

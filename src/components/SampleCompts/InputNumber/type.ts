@@ -7,8 +7,8 @@ type InputSizes = {
 export type InputNumberProps = {
   id: string;
   name: string;
-  min?: number;
-  max?: number;
+  // min?: number;
+  // max?: number;
   value: string;
   focus?: boolean;
   size?: InputSizes;

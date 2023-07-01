@@ -1,7 +1,7 @@
 import * as React from 'react';
 import '@testing-library/jest-dom';
+import { render, fireEvent } from '@testing-library/react';
 import InputNumber from '@/components/SampleCompts/InputNumber';
-import { render, fireEvent, waitFor } from '@testing-library/react';
 
 describe('InputNumber', () => {
   test('renders input element with correct props', () => {

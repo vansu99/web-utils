@@ -6,10 +6,8 @@ const InputNumber: React.ForwardRefRenderFunction<HTMLInputElement, InputNumberP
     id,
     name,
     value,
-    max,
     onBlur,
     onFocus,
-    min = 0,
     focus = false,
     onChangeInput,
     helperText = '',
@@ -49,7 +47,7 @@ const InputNumber: React.ForwardRefRenderFunction<HTMLInputElement, InputNumberP
         onFocus={handleFocus}
         onChange={handleChange}
         placeholder={placeholder}
-        className={`w-full overflow-hidden rounded-[${rounded}] border border-solid p-4 text-[1.5rem] leading-[1.4] outline-none focus:border-first`}
+        className={`w-full overflow-hidden focus:ring-first rounded-[${rounded}] border border-solid p-4 text-[1.5rem] leading-[1.4] outline-none focus:border-first`}
       />
       {helperText ? <span className='mt-1 block text-[1.3rem] leading-[1.3] text-third'>{helperText}</span> : null}
     </div>

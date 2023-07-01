@@ -2,9 +2,9 @@
 
 import React from 'react';
 import dataClipboard from './data';
+import { useCopyToClipboard } from '@/hooks';
 import { FaRegClipboard } from 'react-icons/fa';
 import { CheckedIcon } from '@/components/Icons';
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 
 export default function StyleCommon() {
   const [selectedId, setSelectedId] = React.useState<number | null>(null);
