@@ -41,14 +41,13 @@ const renderConfirmButtons = () => (
 
 ### Attributes
 
-| Attribute            | Default | Type    | Accepted Values |
-| -------------------- | ------- | ------- | --------------- |
-| modalOpen            | True    | Boolean | True/False      |
-| titleHeader          | -       | String  | -               |
-| modalFooter          | True    | Boolean | True/False      |
-| modalHeader          | True    | Boolean | True/False      |
-| modalCloseIcon       | True    | Boolean | True/False      |
-| modalBackgroundColor | White   | String  | -               |
+| Attribute      | Default | Type    | Accepted Values |
+| -------------- | ------- | ------- | --------------- |
+| modalOpen      | True    | Boolean | True/False      |
+| titleHeader    | -       | String  | -               |
+| modalFooter    | True    | Boolean | True/False      |
+| modalHeader    | True    | Boolean | True/False      |
+| modalCloseIcon | True    | Boolean | True/False      |
 
 ---
 
