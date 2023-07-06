@@ -15,7 +15,7 @@ const routes: ROUTE[] = [
   },
   {
     name: 'Components',
-    path: '/components',
+    path: '/compts',
   },
 ];
 

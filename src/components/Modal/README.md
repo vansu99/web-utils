@@ -5,7 +5,34 @@
 ### JSX
 
 ```
-<Modal modalOpen={openModal} onClose={handleCloseModal} titleHeader='Modal Header'>
+const [openModal, setOpenModal] = useState(false);
+
+const handleOpenModal = () => {
+  setOpenModal(true);
+};
+
+const handleCloseModal = () => {
+  setOpenModal(false);
+};
+
+const handleSave = () => {
+  // do something
+}
+
+const renderConfirmButtons = () => (
+  <div className='flex items-center gap-4'>
+    <button onClick={handleSave} className='btn btn-magic min-w-[7rem] p-3' type='button'>
+      Save
+    </button>
+  </div>
+);
+
+<Modal
+  modalOpen={openModal}
+  onClose={handleCloseModal}
+  modalConfirmButtons={renderConfirmButtons()}
+  titleHeader='Modal Header'
+>
   <p className='text-[1.4rem]'>Modal content</p>
 </Modal>
 ```

@@ -1,6 +1,6 @@
 import './style.css';
 import clsx from 'clsx';
-import { useEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { PortalProps } from './type';
 import { useLockBodyScroll } from '@/hooks';
@@ -8,18 +8,32 @@ import { useLockBodyScroll } from '@/hooks';
 const createPortalWrapper = () => {
   const element = document.createElement('div');
   element.id = 'portal__wrapper';
+  document.body.appendChild(element);
   return element;
 };
-
-const portalElementWrapper = createPortalWrapper();
 
 export default function Portal(props: PortalProps) {
   const { containerClassName = '', bodyClassName = '', bodyStyle, children, containerStyle, onClose } = props;
 
+  const [portal, setPortal] = useState<HTMLElement | null>(null);
   useLockBodyScroll();
 
-  useEffect(() => {
-    document.body.appendChild(portalElementWrapper);
+  useLayoutEffect(() => {
+    let element = document.getElementById('portal__wrapper') as HTMLElement;
+    let portalCreated = false;
+
+    if (!element) {
+      element = createPortalWrapper();
+      portalCreated = true;
+    }
+
+    setPortal(element);
+
+    // return () => {
+    //   if (portalCreated && element.parentNode) {
+    //     element.parentNode.removeChild(element);
+    //   }
+    // };
   }, []);
 
   const renderBodyContent = (
@@ -37,5 +51,7 @@ export default function Portal(props: PortalProps) {
     </div>
   );
 
-  return createPortal(renderBodyContent, portalElementWrapper);
+  if (!portal) return;
+
+  return createPortal(renderBodyContent, portal);
 }
