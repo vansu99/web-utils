@@ -1,9 +1,39 @@
+.modal__root {
+  padding: 1.6rem;
+}
+
+.modal__wrapper {
+  z-index: 10;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: white;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .modal__header {
   padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #d1d1d1;
 }
 
+.modal__header button > svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
 .modal__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
   padding: 1.5rem;
 }
 
@@ -13,4 +43,28 @@
   justify-content: flex-end;
   align-items: center;
   border-top: 1px solid #d1d1d1;
+}
+
+/* Animations */
+
+.modal__root.zoom-enter > .modal__wrapper {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.modal__root.zoom-enter-active > .modal__wrapper {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform calc(250 * 1ms) ease, opacity calc(250 * 1ms) ease;
+}
+
+.modal__root.zoom-exit > .modal__wrapper {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal__root.zoom-exit-active > .modal__wrapper {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: transform calc(250 * 1ms) ease, opacity calc(250 * 1ms) ease;
 }
