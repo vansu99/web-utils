@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { forwardRef } from 'react';
 import type { InputNumberProps } from './type';
 
@@ -9,12 +10,16 @@ const InputNumber: React.ForwardRefRenderFunction<HTMLInputElement, InputNumberP
     onBlur,
     onFocus,
     focus = false,
+    error = false,
+    errorText = '',
     onChangeInput,
     helperText = '',
+    rounded = true,
+    readOnly = false,
     disabled = false,
     placeholder = '',
-    rounded = '0.4rem',
     customClassInput = '',
+    ...rest
   } = props;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,14 +47,28 @@ const InputNumber: React.ForwardRefRenderFunction<HTMLInputElement, InputNumberP
         type='text'
         name={name}
         value={value}
+        autoFocus={focus}
+        autoComplete='off'
         disabled={disabled}
+        readOnly={readOnly}
         onBlur={handleBlur}
         onFocus={handleFocus}
         onChange={handleChange}
         placeholder={placeholder}
-        className={`w-full overflow-hidden focus:ring-first rounded-[${rounded}] border border-solid p-4 text-[1.5rem] leading-[1.4] outline-none focus:border-first`}
+        aria-readonly={readOnly}
+        aria-placeholder={placeholder}
+        className={clsx(
+          'w-full overflow-hidden border border-solid p-4 text-[1.5rem] leading-[1.4] outline-none transition-all duration-300 hover:border-first focus:border-first focus:ring-first',
+          rounded ? 'rounded-lg' : 'rounded-none',
+          error ? 'border-error' : 'border-black',
+          readOnly ? 'cursor-not-allowed bg-third' : 'bg-white'
+        )}
+        {...rest}
       />
-      {helperText ? <span className='mt-1 block text-[1.3rem] leading-[1.3] text-third'>{helperText}</span> : null}
+      {helperText && !errorText ? (
+        <span className='mt-1 block text-[1.3rem] leading-[1.3] text-third'>{helperText}</span>
+      ) : null}
+      {errorText ? <span className='mt-1 block text-[1.3rem] leading-[1.3] text-error'>{errorText}</span> : null}
     </div>
   );
 };

@@ -1,23 +1,18 @@
-import { FocusEvent } from 'react';
+import { FocusEvent, InputHTMLAttributes } from 'react';
 
-type InputSizes = {
-  sizes: 'large' | 'medium' | 'small';
-};
-
-export type InputNumberProps = {
+export interface InputNumberProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   name: string;
-  // min?: number;
-  // max?: number;
   value: string;
+  error?: boolean;
   focus?: boolean;
-  size?: InputSizes;
+  rounded?: boolean;
   disabled?: boolean;
+  errorText?: string;
   helperText?: string;
   placeholder?: string;
-  rounded?: number | string;
   customClassInput?: string;
   onChangeInput?: (value: string) => void;
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
-};
+}

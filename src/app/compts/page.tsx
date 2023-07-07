@@ -39,7 +39,13 @@ export default function ComponentPage() {
           </span>
         </h3>
         <div className='max-w-[20rem]'>
-          <InputNumber id='quantity' name='quantity' value={quantity} onChangeInput={handleChangeInputNumber} />
+          <InputNumber
+            readOnly
+            id='quantity'
+            name='quantity'
+            value={quantity}
+            onChangeInput={handleChangeInputNumber}
+          />
         </div>
       </div>
       <div className='mb-8'>

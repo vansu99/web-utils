@@ -28,13 +28,13 @@ const onChangeValue = value => {
 | ---------------- | ------- | ------- | --------------- |
 | id               | -       | String  | -               |
 | name             | -       | String  | -               |
-| min              | 0       | Number  | -               |
-| max              | -       | Number  | -               |
 | focus            | False   | Boolean | True/False      |
-| rounded          | 4       | Number  | -               |
+| rounded          | True    | Boolean | True/False      |
 | placeholder      | -       | String  | -               |
 | helperText       | -       | String  | -               |
 | customClassInput | -       | String  | -               |
+| error            | False   | Boolean | True/False      |
+| errorText        | -       | String  | -               |
 
 ## Input number events
 
