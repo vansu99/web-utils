@@ -13,6 +13,7 @@ module.exports = {
       third: '#d1d1d1',
       gray: '#9BABB8',
       black: '#000000',
+      error: '#EF6262',
     },
     extend: {
       animation: {
