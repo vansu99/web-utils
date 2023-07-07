@@ -19,13 +19,13 @@ describe('Modal component', () => {
   test('displays the modal content when modalOpen is true', () => {
     const handleCloseModal = jest.fn();
 
-    const { getByText } = render(
-      <Modal modalOpen={true} onClose={handleCloseModal}>
-        <div>Modal Content</div>
+    const { getByRole } = render(
+      <Modal modalOpen={true} onClose={handleCloseModal} titleHeader='Modal Header'>
+        <p>Modal content</p>
       </Modal>
     );
 
-    const modalContent = getByText('Modal Content');
+    const modalContent = getByRole('modal');
     expect(modalContent).toBeInTheDocument();
   });
 

@@ -30,8 +30,8 @@ export default function ComponentPage() {
   );
 
   return (
-    <main className='container mt-16'>
-      <div className='mb-8 '>
+    <main className='container mt-16 min-h-screen'>
+      <div className='mb-8'>
         <h3 className='mb-4 flex items-center text-[1.8rem] text-second'>
           Input number component
           <span className='ml-3 cursor-pointer'>
@@ -49,7 +49,7 @@ export default function ComponentPage() {
             <HelpCircleIcon className='h-[2.5rem] w-[2.5rem]' />
           </span>
         </h3>
-        <button className='btn btn-magic' onClick={handleOpenModal}>
+        <button className='btn btn-magic btn-shadow' onClick={handleOpenModal}>
           Open modal
         </button>
         <Modal
