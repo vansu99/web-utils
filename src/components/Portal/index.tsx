@@ -1,6 +1,5 @@
 import { createPortal } from 'react-dom';
 import type { PortalProps } from './type';
-import { useLockBodyScroll } from '@/hooks';
 import { useLayoutEffect, useState } from 'react';
 
 const createPortalWrapper = () => {
@@ -15,7 +14,6 @@ export default function Portal(props: PortalProps) {
   const { children } = props;
 
   const [portal, setPortal] = useState<HTMLElement | null>(null);
-  useLockBodyScroll();
 
   useLayoutEffect(() => {
     let element = document.getElementById('portal__wrapper') as HTMLElement;

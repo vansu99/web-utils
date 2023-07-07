@@ -48,15 +48,18 @@ const renderConfirmButtons = () => (
 | modalFooter    | True    | Boolean | True/False      |
 | modalHeader    | True    | Boolean | True/False      |
 | modalCloseIcon | True    | Boolean | True/False      |
+| fullScreen     | False   | Boolean | True/False      |
+| animate        | zoom    | String  | zoom/fade       |
 
 ---
 
 ### Modal Header Attributes
 
-| Attribute | Default | Type    | Accepted Values  |
-| --------- | ------- | ------- | ---------------- |
-| title     | -       | String  | String/ReactNode |
-| show      | True    | Boolean | True/False       |
+| Attribute  | Default | Type    | Accepted Values  |
+| ---------- | ------- | ------- | ---------------- |
+| title      | -       | String  | String/ReactNode |
+| show       | True    | Boolean | True/False       |
+| iconHeader | True    | Boolean | True/False       |
 
 ---
 

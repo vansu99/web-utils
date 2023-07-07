@@ -90,7 +90,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 500;
     min-width: 12rem;
     padding: 1.5rem;
     border-radius: 0.5rem;
@@ -117,6 +118,10 @@
 
   .btn.btn-outline:hover {
     background-color: #d1d1d1;
+  }
+
+  .btn.btn-shadow {
+    box-shadow: 0 4px 14px 0 #20e3b2;
   }
 
   .bg-button {
