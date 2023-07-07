@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import React from 'react';
 import { CaretUpIcon, CaretDownIcon } from '@/components/Icons';
 import { useAccordionContext } from '@/components/Accordion/context';
@@ -8,10 +9,11 @@ interface AccordionListProps {
   name: string;
   title: string;
   icon?: JSX.Element;
+  classNames?: string;
   children: JSX.Element | React.ReactNode;
 }
 
-export default function AccordionList({ name, title, icon, children }: AccordionListProps) {
+export default function AccordionList({ name, title, icon, children, classNames }: AccordionListProps) {
   const { onClick, visible } = useAccordionContext();
 
   const isVisible = React.useMemo(() => visible === name, [visible, name]);
@@ -36,7 +38,10 @@ export default function AccordionList({ name, title, icon, children }: Accordion
     <div className='mb-12'>
       <div
         onClick={handleClick}
-        className='flex cursor-pointer items-center justify-between border border-solid border-first p-8'
+        className={clsx(
+          'flex cursor-pointer items-center justify-between border border-solid border-first p-8',
+          classNames
+        )}
       >
         <span className='select-none text-[1.8rem] text-white'>{title}</span>
         <span className='select-none text-[2rem] text-white transition-all duration-300'>{iconAccordion}</span>

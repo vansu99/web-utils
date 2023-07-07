@@ -127,4 +127,8 @@
   .bg-button {
     background-color: #090e1a;
   }
+
+  .shadow-magic {
+    box-shadow: #20e3b2 0px 3px 8px;
+  }
 }

@@ -16,22 +16,22 @@ export default function UtilFunctions() {
         <h1 className='text-title'>Util functions</h1>
         <div className='mt-16'>
           <Accordion open={visible} onClick={setVisible}>
-            <Accordion.List name='ratio' title='Aspect Ratio Calculator'>
+            <Accordion.List name='ratio' title='Aspect Ratio Calculator' classNames='shadow-magic'>
               <Accordion.Item>
                 <AspectRatioImage />
               </Accordion.Item>
             </Accordion.List>
-            <Accordion.List name='sample_data' title='Sample test data'>
+            <Accordion.List name='sample_data' title='Sample test data' classNames='shadow-magic'>
               <Accordion.Item>
                 <SampleTestData />
               </Accordion.Item>
             </Accordion.List>
-            <Accordion.List name='common_css' title='Generate CSS common'>
+            <Accordion.List name='common_css' title='Generate CSS common' classNames='shadow-magic'>
               <Accordion.Item>
                 <StyleCommon />
               </Accordion.Item>
             </Accordion.List>
-            <Accordion.List name='common_regex' title='Regex common'>
+            <Accordion.List name='common_regex' title='Regex common' classNames='shadow-magic'>
               <Accordion.Item>
                 <RegexCommon />
               </Accordion.Item>
