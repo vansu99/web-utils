@@ -220,6 +220,60 @@ const dataClipboard: DataClipboardType[] = [
       }
     `,
   },
+  {
+    name: 'hide_body_scroll',
+    title: 'Lock body scroll',
+    code: `
+      body {
+        overflow: hidden;
+        width: calc(100vw - 1.7rem);
+      }
+    `,
+  },
+  {
+    name: 'global_init_css',
+    title: 'Global init',
+    code: `
+      html {
+        font-size: 62.5%;
+        box-sizing: border-box;
+      }
+
+      .body {
+        color: #000;
+        font-family: Neue Kabel,sans-serif;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        background-color: #fff;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      input,
+      button,
+      textarea {
+        font-family: $primary-font;
+        line-height: 1;
+        outline: none;
+      }
+
+      button {
+        cursor: pointer;
+      }
+    `,
+  },
 ];
 
 export default dataClipboard;
