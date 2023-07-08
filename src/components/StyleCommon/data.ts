@@ -2,6 +2,7 @@ type DataClipboardType = {
   name: string;
   title: string;
   code: string;
+  url?: string;
 };
 
 const dataClipboard: DataClipboardType[] = [
@@ -227,6 +228,39 @@ const dataClipboard: DataClipboardType[] = [
       body {
         overflow: hidden;
         width: calc(100vw - 1.7rem);
+      }
+    `,
+  },
+  {
+    name: 'hover_text_horizontal',
+    title: 'Hover text underline',
+    url: 'https://codepen.io/evantran/pen/xxQXamN',
+    code: `
+      <p class="hover-text">Hover text</p>
+
+      .hover-text {
+        display: inline-block;
+        position: relative;
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+
+      .hover-text:after {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: #3a302d;
+        transform: scale(0, 1);
+        transform-origin: right top;
+        transition: transform 0.2s;
+      }
+
+      .hover-text:hover::after {
+        transform-origin: left top;
+        transform: scale(1, 1);
       }
     `,
   },

@@ -31,6 +31,7 @@ export default function ComponentPage() {
 
   return (
     <main className='container mt-16 min-h-screen'>
+      <h1 className='text-title mb-16'>Reusable components</h1>
       <div className='mb-8'>
         <h3 className='mb-4 flex items-center text-[1.8rem] text-second'>
           Input number component

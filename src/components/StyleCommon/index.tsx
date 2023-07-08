@@ -4,7 +4,7 @@ import React from 'react';
 import dataClipboard from './data';
 import { useCopyToClipboard } from '@/hooks';
 import { FaRegClipboard } from 'react-icons/fa';
-import { CheckedIcon } from '@/components/Icons';
+import { CheckedIcon, CodepenIcon } from '@/components/Icons';
 
 export default function StyleCommon() {
   const [selectedId, setSelectedId] = React.useState<number | null>(null);
@@ -33,8 +33,21 @@ export default function StyleCommon() {
             selectedId === index && copied ? 'border-first hover:bg-first/20' : 'border-second hover:bg-second/20'
           }`}
         >
-          <span className='text-2xl text-white'>{data.title}</span>
-          {selectedId === index && copied ? <CheckedIcon /> : <FaRegClipboard className='text-[1.45rem] text-white' />}
+          <div className='flex h-full w-full items-center justify-between'>
+            <span className='text-2xl text-white'>{data.title}</span>
+            <div className='flex items-center justify-between gap-2'>
+              {data.url ? (
+                <a href={data.url} target='_blank' className='inline-block text-[2rem] leading-snug text-white'>
+                  <CodepenIcon />
+                </a>
+              ) : null}
+              {selectedId === index && copied ? (
+                <CheckedIcon />
+              ) : (
+                <FaRegClipboard className='text-[1.6rem] text-white' />
+              )}
+            </div>
+          </div>
         </div>
       ))}
     </div>
