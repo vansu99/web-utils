@@ -25,7 +25,7 @@ export default async function og({ params }: { params: { slug: string } }) {
         </div>
         <div tw='flex flex-col text-neutral-50'>
           <div tw='text-[2rem] font-bold'>{post?.title}</div>
-          <p tw='text-[1.5rem] font-bold'>{post?.description}</p>
+          <p tw='text-[1.5rem] font-bold'>{post?.meta?.description}</p>
         </div>
       </div>
     ),
