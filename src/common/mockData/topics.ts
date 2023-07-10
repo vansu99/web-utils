@@ -1,4 +1,6 @@
-export const dataTopics = [
+import type { PostType } from '@/types';
+
+export const dataTopics: PostType[] = [
   {
     id: 1,
     date: new Date('2023-04-15'),
@@ -7,15 +9,24 @@ export const dataTopics = [
     link: 'naruto-uzumaki',
     imageURL:
       'https://images.pexels.com/photos/12695402/pexels-photo-12695402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    meta: {
+      keywords: ['naruto', 'naruto uzumaki', 'naruto kurama', 'hokage'],
+      description: 'Naruto is generally a very simple minded, easy going, cheerful person.',
+    },
   },
   {
     id: 2,
     date: new Date('2023-07-08'),
     title: 'Kakashi Hatake',
-    description: `Because his mother died when he was very young,[14] Kakashi was raised during his early years by his father, Sakumo. Sakumo was famed throughout the shinobi world, having saved Konoha on at least one occasion; Kakashi in particular revered his father. During one of Sakumo's missions - after Kakashi was enrolled in Konoha's Ninja Academy - Sakumo made the decision to save the lives of his teammates rather than complete the assignment. The mission's failure had disastrous consequences for the Land of Fire, causing many in Konoha, including the teammates he saved, to vilify him for abandoning his duties. Disgraced, Sakumo committed suicide. Seeing what his father went through and determined not to make the same mistakes, Kakashi decided that following the Shinobi Rules must always take priority.`,
+    description: `Because his mother died when he was very young, Kakashi was raised during his early years by his father, Sakumo. Sakumo was famed throughout the shinobi world, having saved Konoha on at least one occasion; Kakashi in particular revered his father. During one of Sakumo's missions - after Kakashi was enrolled in Konoha's Ninja Academy - Sakumo made the decision to save the lives of his teammates rather than complete the assignment. The mission's failure had disastrous consequences for the Land of Fire, causing many in Konoha, including the teammates he saved, to vilify him for abandoning his duties. Disgraced, Sakumo committed suicide. Seeing what his father went through and determined not to make the same mistakes, Kakashi decided that following the Shinobi Rules must always take priority.`,
     link: 'kakashi-hatake',
     imageURL:
       'https://images.pexels.com/photos/16013451/pexels-photo-16013451/free-photo-of-back-view-of-a-person-wearing-a-cape-with-japanese-writing-walking-in-a-forest.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    meta: {
+      keywords: ['naruto', 'kakashi', 'kakashi sharingan'],
+      description:
+        'Hatake Kakashi is a tall male shinobi with white spiky hair. He always wears a mask that covers the lower half of his face.',
+    },
   },
   {
     id: 3,
@@ -25,5 +36,9 @@ export const dataTopics = [
     link: 'sasuke-uchiha',
     imageURL:
       'https://images.pexels.com/photos/69378/pexels-photo-69378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    meta: {
+      keywords: ['naruto', 'sasuke', 'uchiha', 'kakashi sharingan'],
+      description: 'Sasuke is a young talented boy that always tries to surpass his older brother Itachi',
+    },
   },
 ];

@@ -13,9 +13,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const detail = await getPostDetail(params.slug);
     return {
       title: detail.title,
-      description: detail.description,
+      keywords: detail.meta?.keywords,
+      description: detail.meta?.description,
       alternates: {
-        canonical: `https://web-utils-sutv.vercel.app/topics/${detail.link}`,
+        canonical: `/topics/${detail.link}`,
       },
     };
   } catch (error) {
@@ -53,8 +54,8 @@ export default async function TopicDetail({ params }: TopicDetailProps) {
             />
           </figure>
         </div>
-        <div className='mt-[6rem]'>
-          <p className='text-[1.8rem] leading-normal text-white'>{detail?.description}</p>
+        <div className='mt-[4rem] lg:mt-[6rem]'>
+          <p className='text-[1.8rem] leading-relaxed text-white'>{detail?.description}</p>
         </div>
       </div>
     </main>
