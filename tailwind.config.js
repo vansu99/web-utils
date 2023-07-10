@@ -16,6 +16,10 @@ module.exports = {
       error: '#EF6262',
     },
     extend: {
+      aspectRatio: {
+        '3/2': '3 / 2',
+        '4/3': '4 / 3',
+      },
       animation: {
         // modal
         'scale-in': 'scale-in 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
