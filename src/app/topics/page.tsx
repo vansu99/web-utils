@@ -1,4 +1,6 @@
 import React from 'react';
+import SinglePost from '@/components/SinglePost';
+import { dataTopics } from '@/common/mockData/topics';
 
 export const metadata = {
   title: 'Topics',
@@ -9,7 +11,11 @@ export default function Topics() {
   return (
     <main className='container'>
       <div className='min-h-[55vh] py-[5rem]'>
-        <h1 className='text-center text-5xl text-second'>Coming soon ...</h1>
+        <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
+          {dataTopics.map((topic) => (
+            <SinglePost key={topic.id} topic={topic} />
+          ))}
+        </div>
       </div>
     </main>
   );

@@ -53,6 +53,35 @@
     -webkit-background-clip: text;
   }
 
+  .hover-text-underline {
+    position: relative;
+  }
+
+  .hover-text-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform 0.2s;
+  }
+
+  .hover-text-underline:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+
+  .text-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .bg-code {
     background: rgba(255, 255, 255, 0.01);
     border: 1px solid rgba(255, 255, 255, 0.1);
