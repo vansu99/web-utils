@@ -5,6 +5,15 @@ import { FacebookIcon, GMailIcon, GithubIcon, LinkedinIcon } from '@/components/
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
+export const metadata = {
+  metadataBase: new URL('https://web-utils-sutv.vercel.app'),
+  title: {
+    default: 'Web-Utils',
+    template: `%s | Web-Utils`,
+  },
+  description: 'The website is about utility functions and anime.',
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' suppressHydrationWarning>
