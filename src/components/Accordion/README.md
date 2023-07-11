@@ -1,5 +1,7 @@
 # Accordion
 
+The Accordion component is a versatile and customizable way to display collapsible content sections. It provides a user-friendly interface for organizing and presenting the information. By using the provided attributes and examples, you can easily incorporate the Accordion component into your React application.
+
 ## How to use?
 
 ### JSX
@@ -21,9 +23,9 @@
 
 ### Attributes
 
-| Attribute | Default      | Type        |
-| --------- | ------------ | ----------- |
-| open      | True         | Boolean     |
-| name      | Empty string | String      |
-| title     | Empty string | String      |
-| icon      | Empty        | JSX.Element |
+| Attribute | Default      | Type      | Description                                                 |
+| --------- | ------------ | --------- | ----------------------------------------------------------- |
+| open      | True         | Boolean   | Specifies whether the accordion is initially open or closed |
+| name      | Empty string | String    | An optional name or identifier for the accordion            |
+| title     | Empty string | String    | The title or heading for the accordion section              |
+| icon      | Empty        | ReactNode | An optional icon to display alongside the title             |
