@@ -11,6 +11,13 @@ export default function Navbar() {
   const [nowHours] = React.useState(new Date(getTimeNowVN()));
   const pathname = usePathname();
 
+  const checkActivePath = (path: string): boolean => {
+    if (path === '/' && pathname !== path) {
+      return false;
+    }
+    return pathname.startsWith(path);
+  };
+
   const greeting = React.useMemo(() => {
     const currentHours = nowHours.getHours();
 
@@ -42,7 +49,7 @@ export default function Navbar() {
                   href={route.path}
                   className={clsx(
                     'inline-block px-[2.4rem] py-4 text-[1.6rem] font-medium transition-colors hover:text-first',
-                    pathname === route.path ? 'text-first' : 'text-white'
+                    checkActivePath(route.path) ? 'text-first' : 'text-white'
                   )}
                 >
                   <span>{route.name}</span>

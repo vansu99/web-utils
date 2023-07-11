@@ -10,7 +10,7 @@ export const dataTopics: PostType[] = [
     imageURL:
       'https://images.pexels.com/photos/12695402/pexels-photo-12695402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     meta: {
-      keywords: ['naruto', 'naruto uzumaki', 'naruto kurama', 'hokage'],
+      keywords: ['naruto', 'naruto uzumaki', 'naruto kurama', 'hokage', 'naruto anime', 'naruto manga'],
       description: 'Naruto is generally a very simple minded, easy going, cheerful person.',
     },
   },
@@ -23,7 +23,7 @@ export const dataTopics: PostType[] = [
     imageURL:
       'https://images.pexels.com/photos/16013451/pexels-photo-16013451/free-photo-of-back-view-of-a-person-wearing-a-cape-with-japanese-writing-walking-in-a-forest.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     meta: {
-      keywords: ['naruto', 'kakashi', 'kakashi sharingan'],
+      keywords: ['naruto', 'kakashi', 'kakashi sharingan', 'naruto anime', 'naruto manga'],
       description:
         'Hatake Kakashi is a tall male shinobi with white spiky hair. He always wears a mask that covers the lower half of his face.',
     },
@@ -37,7 +37,7 @@ export const dataTopics: PostType[] = [
     imageURL:
       'https://images.pexels.com/photos/69378/pexels-photo-69378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     meta: {
-      keywords: ['naruto', 'sasuke', 'uchiha', 'kakashi sharingan'],
+      keywords: ['naruto', 'sasuke', 'naruto anime', 'naruto manga', 'uchiha', 'kakashi sharingan'],
       description: 'Sasuke is a young talented boy that always tries to surpass his older brother Itachi',
     },
   },
