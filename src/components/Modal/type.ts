@@ -10,6 +10,7 @@ export interface ModalProps {
   modalCloseIcon?: boolean;
   animate?: 'zoom' | 'fade';
   children: React.ReactNode;
+  preventClickOutside?: boolean;
   modalConfirmButtons?: React.ReactNode;
   titleHeader?: string | React.ReactNode;
 }

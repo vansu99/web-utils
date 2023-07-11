@@ -20,12 +20,18 @@ export default function Modal(props: ModalProps) {
     fullScreen = false,
     modalFooter = true,
     modalConfirmButtons,
-    modalCloseIcon = false,
+    modalCloseIcon = true,
+    preventClickOutside = false,
   } = props;
 
   const modalRef = useRef<HTMLElement>(null);
 
   const DisableBodyScroll = useLockBodyScroll;
+
+  const handleClickOutSide = () => {
+    if (preventClickOutside) return;
+    onClose && onClose();
+  };
 
   const handleCloseByEscape = useCallback(
     (event: KeyboardEvent) => {
@@ -54,7 +60,11 @@ export default function Modal(props: ModalProps) {
               fullScreen && 'fullScreen'
             )}
           >
-            <div tabIndex={-1} onClick={onClose} className={clsx('modal__backdrop', fullScreen && 'fullScreen')}></div>
+            <div
+              tabIndex={-1}
+              onClick={handleClickOutSide}
+              className={clsx('modal__backdrop', fullScreen && 'fullScreen')}
+            ></div>
 
             <div
               aria-modal={modalOpen}
