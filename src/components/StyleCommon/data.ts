@@ -9,7 +9,18 @@ const dataClipboard: DataClipboardType[] = [
   {
     name: 'container',
     title: 'Container',
-    code: '<div class="w-full max-w-[116rem] mx-auto px-[1.6rem]"></div>',
+    code: `
+      .wrapper {
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+
+      .container {
+        max-width: 1200px + 30px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+    `,
   },
   {
     name: 'text_gradient',
