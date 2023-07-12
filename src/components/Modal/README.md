@@ -41,18 +41,18 @@ const renderConfirmButtons = () => (
 
 ### Attributes
 
-| Attribute           | Default | Type      | Accepted Values |
-| ------------------- | ------- | --------- | --------------- |
-| modalOpen           | True    | Boolean   | True/False      |
-| titleHeader         | -       | String    | -               |
-| classNames          | -       | String    | -               |
-| modalFooter         | True    | Boolean   | True/False      |
-| modalHeader         | True    | Boolean   | True/False      |
-| modalCloseIcon      | True    | Boolean   | True/False      |
-| modalConfirmButtons | -       | ReactNode | -               |
-| fullScreen          | False   | Boolean   | True/False      |
-| animate             | zoom    | String    | zoom/fade       |
-| preventClickOutside | False   | Boolean   | True/False      |
+| Attribute           | Default | Type      | Accepted Values | Description                                                       |
+| ------------------- | ------- | --------- | --------------- | ----------------------------------------------------------------- |
+| modalOpen           | True    | Boolean   | True/False      | Set the visibility of the modal                                   |
+| titleHeader         | -       | String    | -               | The header title of the modal                                     |
+| classNames          | -       | String    | -               | Additional CSS classes to customize the modal's appearance        |
+| modalFooter         | True    | Boolean   | True/False      | Specifies whether the modal footer is displayed or not            |
+| modalHeader         | True    | Boolean   | True/False      | Specifies whether the modal header is displayed or not            |
+| modalCloseIcon      | True    | Boolean   | True/False      | Specifies whether the close icon of the modal is displayed or not |
+| modalConfirmButtons | -       | ReactNode | -               | Custom confirmation button(s) in the modal footer                 |
+| fullScreen          | False   | Boolean   | True/False      | Specifies whether the modal occupies the entire screen            |
+| animate             | zoom    | String    | zoom/fade       | The display animation of the modal                                |
+| preventClickOutside | False   | Boolean   | True/False      | Specifies whether clicking outside the modal closes it or not     |
 
 ---
 
@@ -79,6 +79,6 @@ const renderConfirmButtons = () => (
 
 ### Events
 
-| Name    | Description                   | Type     |
-| ------- | ----------------------------- | -------- |
-| onClose | triggers when the modal close | Function |
+| Name    | Description                   | Type     | Description                        |
+| ------- | ----------------------------- | -------- | ---------------------------------- |
+| onClose | triggers when the modal close | Function | Triggered when the modal is closed |
