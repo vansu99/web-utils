@@ -11,11 +11,10 @@ export interface LoginFormValues {
 }
 
 interface LoginFormProps {
-  initialFormValues: LoginFormValues;
   onSubmitForm: (formData: LoginFormValues) => Promise<LoginResponse>;
 }
 
-export default function LoginForm({ initialFormValues, onSubmitForm }: LoginFormProps) {
+export default function LoginForm({ onSubmitForm }: LoginFormProps) {
   const schema = yup.object().shape({
     email: yup.string().required('Please enter your email.'),
     password: yup.string().required('Please enter your password.').min(6, 'At least 6 characters.'),
@@ -26,7 +25,7 @@ export default function LoginForm({ initialFormValues, onSubmitForm }: LoginForm
     handleSubmit,
     formState: { isSubmitting },
   } = useForm<LoginFormValues>({
-    defaultValues: initialFormValues,
+    defaultValues: { email: '', password: '' },
     resolver: yupResolver(schema),
   });
 

@@ -74,6 +74,17 @@ export default function ComponentPage() {
           Go to login page
         </Link>
       </div>
+      <div className='mb-8'>
+        <h3 className='mb-4 flex items-center text-[1.8rem] text-second'>
+          Demo Create or Edit form using Modal form
+          <span className='ml-3 cursor-pointer'>
+            <HelpCircleIcon className='h-[2.5rem] w-[2.5rem]' />
+          </span>
+        </h3>
+        <Link href='/auth/admin' className='btn btn-magic btn-shadow inline-block'>
+          Go to demo page
+        </Link>
+      </div>
     </main>
   );
 }
