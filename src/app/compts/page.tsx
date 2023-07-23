@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import Modal from '@/components/Modal';
 import { HelpCircleIcon } from '@/components/Icons';
@@ -61,6 +62,17 @@ export default function ComponentPage() {
         >
           <p className='text-[1.4rem]'>Modal content</p>
         </Modal>
+      </div>
+      <div className='mb-8'>
+        <h3 className='mb-4 flex items-center text-[1.8rem] text-second'>
+          Demo Login form using React hook form lib
+          <span className='ml-3 cursor-pointer'>
+            <HelpCircleIcon className='h-[2.5rem] w-[2.5rem]' />
+          </span>
+        </h3>
+        <Link href='/auth/login' className='btn btn-magic btn-shadow inline-block'>
+          Go to login page
+        </Link>
       </div>
     </main>
   );
