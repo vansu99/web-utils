@@ -1,3 +1,5 @@
+'use client';
+
 import type { LoginResponse } from '@/types/auth';
 import LoginForm from '@/containers/auth/login-form';
 import type { LoginFormValues } from '@/containers/auth/login-form';
