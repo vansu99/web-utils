@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -10,11 +12,7 @@ export interface LoginFormValues {
   password: string;
 }
 
-interface LoginFormProps {
-  onSubmitForm: (formData: LoginFormValues) => Promise<LoginResponse>;
-}
-
-export default function LoginForm({ onSubmitForm }: LoginFormProps) {
+export default function LoginForm() {
   const schema = yup.object().shape({
     email: yup.string().required('Please enter your email.'),
     password: yup.string().required('Please enter your password.').min(6, 'At least 6 characters.'),
@@ -28,6 +26,19 @@ export default function LoginForm({ onSubmitForm }: LoginFormProps) {
     defaultValues: { email: '', password: '' },
     resolver: yupResolver(schema),
   });
+
+  const onSubmitForm = (formData: LoginFormValues): Promise<LoginResponse> => {
+    console.log({ formData });
+    return new Promise((resolve) => {
+      resolve({
+        success: true,
+        data: {
+          accessToken: 'wqeqwe23123',
+          refreshToken: 'asdasd42342342342',
+        },
+      });
+    });
+  };
 
   const handleSubmitForm = async (formData: LoginFormValues) => {
     await onSubmitForm?.(formData);
