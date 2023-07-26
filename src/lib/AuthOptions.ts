@@ -1,7 +1,7 @@
-import { JWT } from 'next-auth/jwt';
-import NextAuth, { NextAuthOptions, Session, User } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
 import { getMe } from '@/apis/user';
+import { JWT } from 'next-auth/jwt';
+import type { NextAuthOptions, Session, User } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -53,6 +53,3 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
-
-const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST };

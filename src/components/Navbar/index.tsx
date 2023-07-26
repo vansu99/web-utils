@@ -3,9 +3,9 @@
 import clsx from 'clsx';
 import React from 'react';
 import Link from 'next/link';
-import routes from '@/routes';
 import { getTimeNowVN } from '@/helpers';
 import { usePathname } from 'next/navigation';
+import routes from '@/common/constants/common';
 
 export default function Navbar() {
   const [nowHours] = React.useState(new Date(getTimeNowVN()));
