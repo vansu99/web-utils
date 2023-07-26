@@ -2,9 +2,10 @@
 
 import React from 'react';
 import * as yup from 'yup';
+import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
-import type { LoginResponse } from '@/types/auth';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter, useSearchParams } from 'next/navigation';
 import InputField from '@/components/FormControl/input-field';
 
 export interface LoginFormValues {
@@ -13,6 +14,9 @@ export interface LoginFormValues {
 }
 
 export default function LoginForm() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const schema = yup.object().shape({
     email: yup.string().required('Please enter your email.'),
     password: yup.string().required('Please enter your password.').min(6, 'At least 6 characters.'),
@@ -27,17 +31,16 @@ export default function LoginForm() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitForm = (formData: LoginFormValues): Promise<LoginResponse> => {
-    console.log({ formData });
-    return new Promise((resolve) => {
-      resolve({
-        success: true,
-        data: {
-          accessToken: 'wqeqwe23123',
-          refreshToken: 'asdasd42342342342',
-        },
-      });
+  const onSubmitForm = async (formData: LoginFormValues) => {
+    const response = await signIn('credentials', {
+      ...formData,
+      redirect: false,
+      callbackUrl: searchParams?.get('from') || '/dashboard',
     });
+
+    if (response?.ok) {
+      router.push(searchParams?.get('from') || '/dashboard');
+    }
   };
 
   const handleSubmitForm = async (formData: LoginFormValues) => {
