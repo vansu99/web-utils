@@ -1,13 +1,13 @@
 import { getToken } from 'next-auth/jwt';
-import { withAuth } from 'next-auth/middleware';
 import { NextResponse } from 'next/server';
+import { withAuth } from 'next-auth/middleware';
 
 export default withAuth(
   async function middleware(req) {
     const token = await getToken({ req });
     const isAuth = !!token;
     const isAuthPage =
-      req.nextUrl.pathname.startsWith('/login') || req.nextUrl.pathname.startsWith('/register');
+      req.nextUrl.pathname.startsWith('/auth/login') || req.nextUrl.pathname.startsWith('/auth/register');
 
     if (isAuthPage) {
       if (isAuth) {
@@ -23,7 +23,7 @@ export default withAuth(
         from += req.nextUrl.search;
       }
 
-      return NextResponse.redirect(new URL(`/login?from=${encodeURIComponent(from)}`, req.url));
+      return NextResponse.redirect(new URL(`/auth/login?from=${encodeURIComponent(from)}`, req.url));
     }
   },
   {
@@ -38,6 +38,7 @@ export default withAuth(
   }
 );
 
+// các url mà middleware sẽ được áp dụng để kiểm tra và xác định liệu người dùng đã đăng nhập hay chưa?
 export const config = {
-  matcher: ['/dashboard/:path*', '/editor/:path*', '/login', '/register'],
+  matcher: ['/dashboard/:path*', '/auth/login'],
 };
