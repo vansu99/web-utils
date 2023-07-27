@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Modal from '@/components/Modal';
 import { HelpCircleIcon } from '@/components/Icons';
-import { InputNumber } from '@/components/SampleCompts';
+import { InputNumber } from '@/components/FormControl';
 
 export default function ComponentPage() {
   const [quantity, setQuantity] = useState('1');

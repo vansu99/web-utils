@@ -24,7 +24,7 @@ export default function BlurImage(props: BlurImage) {
       width={props.width ?? 16}
       height={props.height ?? 9}
       className={clsx(
-        'block duration-700 ease-in-out',
+        'linear block duration-700',
         props.className,
         isLoading ? 'scale-105 blur-lg' : 'scale-100 blur-0'
       )}
