@@ -9,7 +9,7 @@ export interface InputFieldProps {
   control: Control<any>;
 }
 
-export default function InputField({ name, type = 'text', control }: InputFieldProps) {
+function InputField({ name, type = 'text', control }: InputFieldProps) {
   const {
     field: { value, ref, onChange, onBlur },
     fieldState: { error },
@@ -31,3 +31,5 @@ export default function InputField({ name, type = 'text', control }: InputFieldP
     </div>
   );
 }
+
+export default InputField

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import type { Data } from '@/types/common';
 import ModalForm from '@/components/ModalForm';
 import { yupResolver } from '@hookform/resolvers/yup';
-import InputField from '@/components/FormControl/input-field';
+import Index from '@/components/FormControl/InputField';
 
 export type UserFormValues = {
   email: string;
@@ -66,19 +66,19 @@ export default function UserForm({ open, detail, onClose, onSubmitForm }: UserFo
           <label className='mb-2 block text-2xl font-medium text-black' htmlFor='email'>
             Email
           </label>
-          <InputField name='email' control={control} />
+          <Index name='email' control={control} />
         </div>
         <div className='mb-6'>
           <label className='mb-2 block text-2xl font-medium text-black' htmlFor='username'>
             Username
           </label>
-          <InputField name='username' control={control} />
+          <Index name='username' control={control} />
         </div>
         <div className='mb-6'>
           <label className='mb-2 block text-2xl font-medium text-black' htmlFor='phoneNumber'>
             Phone number
           </label>
-          <InputField name='phoneNumber' control={control} />
+          <Index name='phoneNumber' control={control} />
         </div>
       </form>
     </ModalForm>

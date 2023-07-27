@@ -1,5 +1,5 @@
 import React from 'react';
-import SinglePost from '@/components/SinglePost';
+import SinglePost from '../../containers/post/SinglePost';
 import { dataTopics } from '@/common/mockData/topics';
 
 export const metadata = {

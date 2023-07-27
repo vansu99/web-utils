@@ -4,9 +4,9 @@ import React from 'react';
 import * as yup from 'yup';
 import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
+import {InputField} from '@/components/FormControl';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter, useSearchParams } from 'next/navigation';
-import InputField from '@/components/FormControl/input-field';
 
 export interface LoginFormValues {
   email: string;
