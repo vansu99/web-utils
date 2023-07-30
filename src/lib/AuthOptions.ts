@@ -1,4 +1,3 @@
-import { getMe } from '@/apis/user';
 import { JWT } from 'next-auth/jwt';
 import type { NextAuthOptions, Session, User } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -10,18 +9,15 @@ export const authOptions: NextAuthOptions = {
       credentials: {},
       async authorize(credentials) {
         try {
-          const res = await fetch('https://fake-api-admin-evanc.vercel.app/api/auth/login', {
+          const res = await fetch(`https://fake-api-admin-evanc.vercel.app/api/auth/login`, {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: { 'Content-Type': 'application/json' },
           });
 
-          const {
-            data: { access_token },
-          } = await res.json();
-          if (res.ok && access_token) {
-            const user = await getMe(access_token);
-            return user;
+          const { data } = await res.json();
+          if (res.ok && data.access_token) {
+            return data;
           } else {
             return null;
           }
@@ -40,16 +36,15 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === 'development',
   callbacks: {
-    async jwt({ token, user }: { token: JWT; user: User }) {
-      if (user?.email) {
-        return { ...token, ...user };
-      }
-
-      return token;
+    async jwt({ token, user }: { token: any; user: any }) {
+      return { ...token, ...user };
     },
-    async session({ session, token }: { session: Session; token: JWT }): Promise<Session> {
-      const newSession = { ...session, ...token };
-      return newSession;
+    async session({ session, token }: { session: Session; token: any }): Promise<Session> {
+      session.user.name = token.name;
+      session.user.image = token.avatar;
+      session.user.accessToken = token.access_token;
+      session.user.refreshToken = token.refresh_token;
+      return session;
     },
   },
 };

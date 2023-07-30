@@ -6,7 +6,7 @@ The Accordion component is a versatile and customizable way to display collapsib
 
 ### JSX
 
-```
+```ts
 <Accordion open={visible} onClick={setVisible}>
   <Accordion.List name='ratio' title='Ratio'>
     <Accordion.Item>

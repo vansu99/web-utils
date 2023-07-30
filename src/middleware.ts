@@ -40,5 +40,5 @@ export default withAuth(
 
 // các url mà middleware sẽ được áp dụng để kiểm tra và xác định liệu người dùng đã đăng nhập hay chưa?
 export const config = {
-  matcher: ['/dashboard/:path*', '/auth/login'],
+  matcher: ['/dashboard/:path*', '/auth/login', '/auth/register'],
 };

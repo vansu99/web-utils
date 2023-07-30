@@ -4,7 +4,7 @@
 
 ### JSX
 
-```
+```ts
 const [openModal, setOpenModal] = useState(false);
 
 const handleOpenModal = () => {
@@ -17,7 +17,7 @@ const handleCloseModal = () => {
 
 const handleSave = () => {
   // do something
-}
+};
 
 const renderConfirmButtons = () => (
   <div className='flex items-center gap-4'>
@@ -34,7 +34,7 @@ const renderConfirmButtons = () => (
   titleHeader='Modal Header'
 >
   <p className='text-[1.4rem]'>Modal content</p>
-</Modal>
+</Modal>;
 ```
 
 ---
