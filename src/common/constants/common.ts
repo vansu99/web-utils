@@ -1,6 +1,6 @@
 import type { ROUTE } from '@/types';
 
-const routes: ROUTE[] = [
+export const routes: ROUTE[] = [
   {
     name: 'About',
     path: '/about',
@@ -19,4 +19,4 @@ const routes: ROUTE[] = [
   },
 ];
 
-export default routes;
+export const REFETCH_INTERVAL_TIME = 30 * 60 * 1000; // 30mins
