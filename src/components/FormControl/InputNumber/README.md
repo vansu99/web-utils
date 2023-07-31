@@ -6,20 +6,14 @@
 
 ## How to use?
 
-```
-const [quantity, setQuantity] = useState(1)
+```ts
+const [quantity, setQuantity] = useState(1);
 
-const onChangeValue = value => {
+const onChangeValue = (value) => {
   // do something
-}
+};
 
-<InputNumber
-  name="quantity"
-  id="quantity"
-  value={quantity}
-  onChange={onChangeValue}
-  placeholder="Enter quantity"
-/>
+<InputNumber name='quantity' id='quantity' value={quantity} onChange={onChangeValue} placeholder='Enter quantity' />;
 ```
 
 ## Input number attributes
