@@ -32,4 +32,4 @@ function InputField({ name, type = 'text', control }: InputFieldProps) {
   );
 }
 
-export default InputField
+export default InputField;
