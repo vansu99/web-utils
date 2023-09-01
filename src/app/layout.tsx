@@ -15,7 +15,7 @@ export const metadata = {
   description: 'The website is about utility functions and anime.',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' suppressHydrationWarning>
       <AuthProvider>
@@ -63,3 +63,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
+export default RootLayout;

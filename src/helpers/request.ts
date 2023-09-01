@@ -13,9 +13,20 @@ type ResponseBodyData<T> = {
 type ResponseData<T> = T;
 
 class RequestService {
+  private refreshTokenRequest: Promise<string> | null;
+
+  constructor() {
+    this.refreshTokenRequest = null;
+  }
+
   private async getToken() {
     const session = await getServerSession(authOptions);
     return session?.user.accessToken;
+  }
+
+  private async getRefreshToken() {
+    const session = await getServerSession(authOptions);
+    return session?.user.refreshToken;
   }
 
   private objectToURLSearchParams(obj: Record<string, any>): URLSearchParams {
@@ -44,25 +55,21 @@ class RequestService {
     optionRequest?: RequestInit,
     cacheControl?: RequestCache
   ): Promise<ResponseData<T>> {
-    const token = await this.getToken();
+    let token = null;
+    let refreshToken = null;
+
+    token = await this.getToken();
+    refreshToken = await this.getRefreshToken();
+
     const options: RequestInit = {
       method,
       headers: {
         'Content-type': 'application/json',
+        ...(cacheControl && { cache: cacheControl }),
+        ...(token && { Authorization: `Bearer ${token}` }),
       },
       ...optionRequest,
     };
-
-    if (cacheControl) {
-      options.cache = cacheControl;
-    }
-
-    if (token) {
-      options.headers = {
-        ...options.headers,
-        Authorization: `Bearer ${token}`,
-      };
-    }
 
     if (payload) {
       if ('body' in payload) {
@@ -75,15 +82,57 @@ class RequestService {
     }
 
     try {
-      const response = await fetch(`${process.env.NEXT_BASE_URL}${path}`, options);
-      const responseData: ResponseBodyData<T> = await response.json();
-      if (responseData?.success) {
-        return responseData.data;
+      const response = await this.fetcher(`${process.env.NEXT_BASE_URL}${path}`, options);
+      if (response.ok) {
+        const responseData: ResponseBodyData<T> = await response.json();
+        if (responseData?.success) {
+          return responseData.data;
+        } else {
+          throw new Error(`${responseData?.message}`);
+        }
+      } else if (response.status === 401) {
+        const url = response.url;
+        const configHeaders = response.headers;
+        // check if the token is expired and the url is not refresh-token
+        if (response.status === 401 && url !== 'auth/refresh-token') {
+          this.refreshTokenRequest = this.refreshTokenRequest
+            ? this.refreshTokenRequest
+            : this.fetchRefreshToken(refreshToken as string).finally(() => {
+                setTimeout(() => {
+                  this.refreshTokenRequest = null;
+                }, 10000);
+              });
+
+          return this.refreshTokenRequest?.then((accessToken) => {
+            return this.request<T>(method, path, payload, optionRequest, cacheControl);
+          });
+        } else {
+          throw new Error('');
+        }
       } else {
-        throw new Error(`${responseData?.message}`);
+        // check case 422
+        throw new Error('');
       }
     } catch (error: any) {
       return Promise.reject(error);
+    }
+  }
+
+  private async fetcher(url: string, options: RequestInit, timeout = 10000): Promise<Response> {
+    return Promise.race([
+      fetch(url, options),
+      new Promise<Response>((_, reject) => {
+        setTimeout(() => reject(new Error('Request Timeout')), timeout);
+      }),
+    ]);
+  }
+
+  private async fetchRefreshToken(refreshToken: string): Promise<string> {
+    if (refreshToken) {
+      const response = await this.request('POST', 'auth/refresh-token', { body: { refreshToken } });
+      return 'ssssssss';
+    } else {
+      return '';
     }
   }
 

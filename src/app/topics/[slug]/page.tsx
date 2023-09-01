@@ -46,9 +46,9 @@ export default async function TopicDetail({ params }: TopicDetailProps) {
               }
               className='h-full w-full object-cover object-center'
               placeholder='blur'
-              width={0}
-              height={0}
-              sizes='100vw'
+              width={500}
+              height={500}
+              sizes='(max-width: 50px) 2vw, (max-width: 425px) 20vw, 70vw'
               blurDataURL={placeholderBlurhash}
               alt={detail?.title ?? 'demo image'}
             />

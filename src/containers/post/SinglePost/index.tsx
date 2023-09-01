@@ -11,7 +11,7 @@ type SinglePostProps = {
 export default function SinglePost({ topic }: SinglePostProps) {
   return (
     <Link href={`/topics/${topic.link}`} className='flex flex-col'>
-      <figure className='group relative mx-auto aspect-video h-full w-full overflow-hidden rounded-2xl'>
+      <figure className='group relative mx-auto overflow-hidden rounded-2xl'>
         <BlurImage
           src={
             topic.imageURL ??
@@ -19,9 +19,9 @@ export default function SinglePost({ topic }: SinglePostProps) {
           }
           className='h-full w-full object-cover object-center group-hover:scale-105 group-hover:duration-300'
           placeholder='blur'
-          width={0}
-          height={0}
-          sizes='100vw'
+          width={400}
+          height={400}
+          sizes='(max-width: 50px) 2vw, 70vw'
           blurDataURL={placeholderBlurhash}
           alt={topic.title ?? 'demo image'}
         />
